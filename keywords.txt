@@ -1,0 +1,9 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Heartbeat	KEYWORD1
+
+setBPM	KEYWORD2
+checkBeat	KEYWORD2
+timeSinceLastBeat	KEYWORD2
