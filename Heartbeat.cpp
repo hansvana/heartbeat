@@ -6,6 +6,7 @@ Heartbeat::Heartbeat() {
   cycleTime = 60000/70;
   systoleTime = cycleTime/2.7;
   dastole = false;
+  secondBeat = true;
 }
 
 void Heartbeat::setBPM(int bpm) {
@@ -15,17 +16,20 @@ void Heartbeat::setBPM(int bpm) {
 bool Heartbeat::checkBeat() {
   unsigned long currentMillis = millis();
 
+  // First Beat
   if (currentMillis - previousBeat >= cycleTime) {    
     previousBeat = currentMillis;
     dastole = false;
     return true;
   }
 
+  // Second Beat
   if (currentMillis - previousBeat >= systoleTime && !dastole) {
     dastole = true;
-    return true;
+    return secondBeat;
   }
 
+  // No Beat
   return false;
 }
 
@@ -33,6 +37,8 @@ long Heartbeat::timeSinceLastBeat() {
   unsigned long currentMillis = millis();
   return currentMillis - (previousBeat + ( dastole ? systoleTime : 0));
 }
+
+
 
 
 

@@ -9,3 +9,6 @@ See the included example for usage. The library simulates a [Cardiac cycle](http
 - `setBPM()` Sets the BPM, if no BPM is set 70 is assumed
 - `checkBeat()` Returns `true` on the 1st and 2nd beat of each cycle, `false` in between beats. Note: `checkBeat()` can only return `true` once per loop.
 - `timeSinceLastBeat()` Returns time since last beat in ms. Useful for if you want something to happen briefly after each beat, like turning off an LED.
+
+### Properties
+- `secondBeat` (default `true`) set to false if you don't want `checkBeat()` to return `true` on the second beat.
